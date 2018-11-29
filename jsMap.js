@@ -1,3 +1,29 @@
+//方式一
+function Map() {
+	this.obj = {};
+	this.count = 0;
+}
+Map.prototype.put = function (key, value) {
+        var oldValue = this.obj[key];
+	if (oldValue == undefined) {
+		this.count++;
+	}
+	this.obj[key] = value;
+}
+Map.prototype.get = function (key) {
+	return this.obj[key];
+}
+Map.prototype.remove = function (key) {
+	var oldValue = this.obj[key];
+	if (oldValue != undefined) {
+		this.count--;
+		delete this.obj[key];
+	}
+}
+Map.prototype.size = function () {
+	return this.count;
+}
+//方式二
 		/*   
 		 * MAP对象，实现MAP功能   
 		 *   
